@@ -1,22 +1,21 @@
-//Problem 1 Solution |
+//Problem 01 Solution |
 const filterEvenNumbers = (arr: number[]): number[] => {
   return arr.filter((num) => num % 2 === 0);
 };
 
-const resultEvenArry=filterEvenNumbers([1, 2, 3, 4, 5, 6])
+filterEvenNumbers([1, 2, 3, 4, 5, 6])
 
-console.log('problem1 result',resultEvenArry)
 
-//Problem 2 Solutions
+//Problem 02 Solutions
 const reverseString = (input: string): string => {
   return input.split("").reverse().join("");
 };
 
-const resultStr=reverseString("typescript");
+reverseString("typescript");
 
-console.log(resultStr)
 
-// Problem 3 Solutions
+
+// Problem 03 Solutions
 type TStringOrNumber = string | number;
 
 const checkType = (input: TStringOrNumber): string => {
@@ -24,27 +23,27 @@ const checkType = (input: TStringOrNumber): string => {
 };
 
 
-console.log(checkType('Horidas'))
+checkType('Horidas')
 
-//  Problem 4 Solutions
+//  Problem 04 Solutions
 interface IuserObject {
   id: number;
   name: string;
   age: number;
 }
 
-const getProperty = <Tkey extends keyof IuserObject>(
+const getProperty = <TKey extends keyof IuserObject>(
   obj: IuserObject,
-  key: Tkey,
-) => {
+  key: TKey,
+): IuserObject[TKey] => {
   return obj[key];
 };
 
 const user = { id: 1, name: "John Doe", age: 21 };
 
-console.log(getProperty(user, "name"));
+ getProperty(user,'name')
 
-// Problem 5 Solutions
+// Problem 05 Solutions
 
 interface Book {
   title: string;
@@ -61,8 +60,8 @@ const myBook: Book = {
   publishedYear: 2024,
 };
 
-const result = toggleReadStatus(myBook);
-console.log(result);
+ toggleReadStatus(myBook);
+
 
 // Problem 06  Solutions
 
@@ -89,8 +88,17 @@ class Student extends Person {
 
  const student = new Student("Alice", 20, "A");
  const studentInfo=  student.getDetails();
- console.log(studentInfo)
 
 
+
+// Problem 07  Solutons
+const getIntersection=(arr1:number[],arr2:number[]):number[]=>{
+ 
+    return arr1.filter(num=> arr2.includes(num))
+}
+
+ getIntersection([1, 2, 3, 4, 5], [3, 4, 5, 6, 7])
+ 
+ 
 
 
