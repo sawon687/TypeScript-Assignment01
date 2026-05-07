@@ -83,21 +83,22 @@ Object-Oriented Programming (OOP) has four main pillars: Inheritance, Polymorphi
 One class can reuse features of another class, so we avoid repeating code.
 
 ```ts
-class Animal {
-  eat() {
-    console.log("Eating...");
-  }
+class Person {
+  constructor(
+    public name: string,
+    public age: number,
+  ) {}
 }
 
-class Dog extends Animal {
-  bark() {
-    console.log("Barking...");
+class Student extends Person {
+  constructor(
+    name: string,
+    age: number,
+    public grade: string,
+  ) {
+    super(name, age);
   }
 }
-
-const d = new Dog();
-d.eat();
-d.bark();
 ```
 
 ---
