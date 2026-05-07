@@ -84,12 +84,20 @@ One class can reuse features of another class, so we avoid repeating code.
 
 ```ts
 class Animal {
-  move() {
-    console.log("Moving...");
+  eat() {
+    console.log("Eating...");
   }
 }
 
-class Dog extends Animal {}
+class Dog extends Animal {
+  bark() {
+    console.log("Barking...");
+  }
+}
+
+const d = new Dog();
+d.eat();
+d.bark();
 ```
 
 ---
@@ -117,15 +125,22 @@ class Cat extends Animal {
 Hide complex implementation details and show only required functionality.
 
 ```ts
-abstract class Payment {
-  abstract pay(): void;
+abstract class Shape {
+  abstract getArea(): number;
 }
 
-class CardPayment extends Payment {
-  pay() {
-    console.log("Payment successful");
+class Circle extends Shape {
+  constructor(private radius: number) {
+    super();
+  }
+
+  getArea(): number {
+    return Math.PI * this.radius * this.radius;
   }
 }
+
+const c = new Circle(5);
+console.log(c.getArea());
 ```
 
 ---
@@ -135,12 +150,20 @@ Protect data inside a class and control access.
 
 ```ts
 class BankAccount {
-  private balance = 1000;
+  private balance: number = 0;
+
+  deposit(amount: number) {
+    this.balance += amount;
+  }
 
   getBalance() {
     return this.balance;
   }
 }
+
+const acc = new BankAccount();
+acc.deposit(500);
+console.log(acc.getBalance()); 
 ```
 
 ---
